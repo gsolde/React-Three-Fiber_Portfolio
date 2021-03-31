@@ -5,6 +5,7 @@ function Lights() {
     <>
       <ambientLight intensity={0.5} />
       <directionalLight intensity={1} position={[0, 2, 2]} castShadow />
+      <directionalLight intensity={0.5} position={[2, 2, 2]} castShadow />
     </>
   );
 }
