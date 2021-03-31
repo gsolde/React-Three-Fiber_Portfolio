@@ -1,13 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Plane } from "@react-three/drei";
 
-const Tile = () => {
-  let tile = useRef();
-
+const Tile = (props) => {
   return (
     <group>
-      <Plane ref={tile} position={[0, 0, 0]} args={[1.5, 2]}>
-        <meshBasicMaterial attach="material" wireframe={true} color={"black"} />
+      <Plane position={props.tilePosition} args={props.args}>
+        <meshBasicMaterial attach="material" wireframe={true} color={"gray"} />
       </Plane>
     </group>
   );
