@@ -9,7 +9,7 @@ function App() {
   return (
     <Canvas shadowMap camera={{ position: [0, 0, 5], fov: 90 }}>
       <directionalLight />
-      <Carousel activities={tiles} position={[0, 0, 19.5]} />
+      <Carousel activities={tiles} position={[0, 0, 19]} />
       <Lights />
       <fog attach="fog" args={["white", 0, 10]} />
     </Canvas>

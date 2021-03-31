@@ -13,7 +13,7 @@ const Carousel = (props) => {
         return (
           <group key={index}>
             <Tile
-              args={[1.5, 2]}
+              args={[1, 1]}
               tilePosition={[
                 Math.sin(((Math.PI * 2) / circleSegments) * (firstTilePosition - index)) * circleRadius,
                 0,

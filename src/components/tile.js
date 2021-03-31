@@ -1,22 +1,23 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { RoundedBox } from "@react-three/drei";
 import { useFrame } from "react-three-fiber";
+import { debounce } from "lodash";
 import * as THREE from "three";
 
 const Tile = (props) => {
   let tile = useRef();
-
   let tileRotationY;
   let tileTargetRotationY;
 
-  function handlePointerOver() {
+  const handlePointerOver = debounce(() => {
     tileRotationY = tile.current.rotation.y;
     tileTargetRotationY = tileRotationY + Math.PI;
-  }
-  function handlePointerOut() {
+  }, 700);
+
+  const handlePointerOut = debounce(() => {
     tileRotationY = tile.current.rotation.y;
     tileTargetRotationY = tileRotationY - Math.PI;
-  }
+  }, 1200);
 
   useFrame(() => {
     if (tileRotationY) {
