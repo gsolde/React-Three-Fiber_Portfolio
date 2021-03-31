@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { RoundedBox, Plane } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { RoundedBox } from "@react-three/drei";
 
 const Tile = (props) => {
   let tile = useRef();
@@ -14,16 +13,14 @@ const Tile = (props) => {
       <RoundedBox
         ref={tile}
         position={props.tilePosition}
-        args={[1, 1.5, 0.14]} // Width, Height and Depth of the box
-        radius={0.07} // Border-Radius of the box
-        smoothness={10} // Optional, number of subdivisions
+        args={[1, 1.5, 0.14]}
+        radius={0.07}
+        smoothness={10}
+        onClick={() => console.log("clicked")}
         castShadow
       >
         <meshStandardMaterial attach="material" color="white" wireframe={false} />
       </RoundedBox>
-      {/* <Plane ref={tile} position={props.tilePosition} args={[1, 1.5]}>
-        <meshBasicMaterial attach="material" wireframe={false} color={"white"} />
-      </Plane> */}
     </group>
   );
 };
