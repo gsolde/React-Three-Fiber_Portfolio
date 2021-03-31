@@ -1,15 +1,14 @@
-import React, { useRef } from "react";
+import React from "react";
 import Tile from "../components/tile";
+import { Plane } from "@react-three/drei";
 
 const Carousel = (props) => {
-  let ref = useRef();
-
-  const circleRadius = 20;
-  const circleSegments = 60;
-  const firstTilePosition = 31;
+  const circleRadius = 16;
+  const circleSegments = 80;
+  const firstTilePosition = 51;
 
   return (
-    <group ref={ref} position={props.position}>
+    <group position={props.position}>
       {props.activities.map((index) => {
         return (
           <group key={index}>
@@ -24,6 +23,9 @@ const Carousel = (props) => {
           </group>
         );
       })}
+      <Plane receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.85, 0]} args={[2000, 2000]}>
+        <meshStandardMaterial attach="material" color="white" />
+      </Plane>
     </group>
   );
 };
