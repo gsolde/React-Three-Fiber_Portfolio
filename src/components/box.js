@@ -48,7 +48,7 @@ const Box = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      initialPositioning(-16);
+      initialPositioning(props.boxPosition[2]);
     }, 750);
     setTimeout(() => {
       handlePointerOut();
