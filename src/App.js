@@ -1,19 +1,16 @@
 import React from "react";
 import { Canvas } from "react-three-fiber";
-import Carousel from "./containers/carousel";
+import Letters from "./containers/letters";
 import Lights from "./components/lights";
 import CameraController from "./components/cameraController";
 
 function App() {
-  let tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-
   return (
-    <Canvas shadowMap camera={{ position: [0, 0, 5], fov: 90 }}>
+    <Canvas shadowMap camera={{ position: [-5, -3.5, 19], fov: 90 }}>
       <CameraController />
-      <directionalLight />
-      <Carousel activities={tiles} position={[0, 0, 19]} />
+      <Letters position={[0, 0, 19]} />
       <Lights />
-      <fog attach="fog" args={["white", 0, 10]} />
+      <fog attach="fog" args={["white", 5, 50]} />
     </Canvas>
   );
 }
