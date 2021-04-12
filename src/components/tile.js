@@ -43,7 +43,7 @@ const Tile = (props) => {
         ref={tile}
         position={props.tilePosition}
         args={[0.95, 0.95, 0.5]}
-        radius={0.04}
+        radius={0.1}
         smoothness={10}
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
