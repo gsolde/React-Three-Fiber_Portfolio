@@ -3,7 +3,7 @@ import { RoundedBox } from "@react-three/drei";
 import { useFrame } from "react-three-fiber";
 import * as THREE from "three";
 
-const Tile = (props) => {
+const Box = (props) => {
   let tile = useRef();
   let tileRotationY;
   let tileTargetRotationY;
@@ -56,4 +56,4 @@ const Tile = (props) => {
   );
 };
 
-export default Tile;
+export default Box;
