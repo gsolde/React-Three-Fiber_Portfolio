@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { RoundedBox } from "@react-three/drei";
 import { useFrame } from "react-three-fiber";
 import * as THREE from "three";
@@ -11,6 +11,15 @@ const Box = (props) => {
   let boxTargetScaleZ;
   let boxPositionZ;
   let boxTargetPositionZ;
+
+  function initialPositioning(initialBoxPosition) {
+    boxRotationY = box.current.rotation.y;
+    boxTargetRotationY = boxRotationY + Math.PI;
+    boxScaleZ = box.current.scale.z;
+    boxTargetScaleZ = 5;
+    boxPositionZ = box.current.position.z;
+    boxTargetPositionZ = initialBoxPosition;
+  }
 
   function handlePointerOver() {
     boxRotationY = box.current.rotation.y;
@@ -37,11 +46,20 @@ const Box = (props) => {
     }
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      initialPositioning(-16);
+    }, 750);
+    setTimeout(() => {
+      handlePointerOut();
+    }, 1000);
+  }, []);
+
   return (
     <group>
       <RoundedBox
         ref={box}
-        position={props.boxPosition}
+        position={[props.boxPosition[0], props.boxPosition[1], Math.random() * -10]}
         args={[0.95, 0.95, 0.5]}
         radius={0.1}
         smoothness={10}
@@ -50,7 +68,7 @@ const Box = (props) => {
         castShadow
         receiveShadow
       >
-        <meshPhongMaterial attach="material" color={props.color} wireframe={false} />
+        <meshPhongMaterial attach="material" color={"#2E86C1"} wireframe={false} />
       </RoundedBox>
     </group>
   );
