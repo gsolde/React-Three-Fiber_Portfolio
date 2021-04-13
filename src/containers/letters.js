@@ -130,7 +130,7 @@ const Letters = (props) => {
         </group>
       </group>
     );
-  });
+  }, []);
 };
 
 export default Letters;
