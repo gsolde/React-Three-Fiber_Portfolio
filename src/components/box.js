@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { RoundedBox } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 const Box = (props) => {
@@ -11,8 +11,6 @@ const Box = (props) => {
   let boxTargetScaleZ;
   let boxPositionZ;
   let boxTargetPositionZ;
-
-  const { viewport } = useThree();
 
   function initialPositioning(initialBoxPosition) {
     boxRotationY = box.current.rotation.y;
