@@ -1,5 +1,5 @@
 import React from "react";
-import { Canvas } from "react-three-fiber";
+import { Canvas } from "@react-three/fiber";
 import Letters from "./containers/letters";
 import Lights from "./components/lights";
 import CameraController from "./components/cameraController";
