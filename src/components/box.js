@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { RoundedBox } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 
 const Box = (props) => {
@@ -67,7 +68,7 @@ const Box = (props) => {
     <group>
       <RoundedBox
         ref={box}
-        position={[props.boxPosition[0], props.boxPosition[1], Math.random() * 20]}
+        position={[props.boxPosition[0], props.boxPosition[1], Math.random() * isMobile ? 30 : 20]}
         args={[0.95, 0.95, 0.5]}
         radius={0.1}
         smoothness={10}
