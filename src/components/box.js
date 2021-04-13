@@ -4,7 +4,10 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 const Box = (props) => {
+  let isFirstAnimationDone = false;
+
   let box = useRef();
+
   let boxRotationY;
   let boxTargetRotationY;
   let boxScaleZ;
@@ -22,17 +25,21 @@ const Box = (props) => {
   }
 
   function handlePointerOver() {
-    boxRotationY = box.current.rotation.y;
-    boxTargetRotationY = boxRotationY + Math.PI;
-    boxScaleZ = box.current.scale.z;
-    boxTargetScaleZ = 5;
-    boxPositionZ = box.current.position.z;
-    boxTargetPositionZ = boxPositionZ - 1.5;
+    if (isFirstAnimationDone) {
+      boxRotationY = box.current.rotation.y;
+      boxTargetRotationY = boxRotationY + Math.PI;
+      boxScaleZ = box.current.scale.z;
+      boxTargetScaleZ = 5;
+      boxPositionZ = box.current.position.z;
+      boxTargetPositionZ = boxPositionZ - 1.5;
+    }
   }
 
   function handlePointerOut() {
-    boxScaleZ = box.current.scale.z;
-    boxTargetScaleZ = 1;
+    if (isFirstAnimationDone) {
+      boxScaleZ = box.current.scale.z;
+      boxTargetScaleZ = 1;
+    }
   }
 
   useFrame(() => {
@@ -51,6 +58,7 @@ const Box = (props) => {
       initialPositioning(props.boxPosition[2]);
     }, 750);
     setTimeout(() => {
+      isFirstAnimationDone = true;
       handlePointerOut();
     }, 900);
   });
