@@ -12,5 +12,5 @@ body,
 }
 
 body {
-  background: #283747;
+  background: linear-gradient(to right, #282c34, #283747);
 }
