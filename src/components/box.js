@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RoundedBox } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
@@ -38,7 +38,7 @@ const Box = (props) => {
   }
 
   useFrame(() => {
-    if (boxScaleZ) {
+    if (box && boxScaleZ) {
       boxScaleZ = THREE.MathUtils.lerp(boxScaleZ, boxTargetScaleZ, 0.1);
       box.current.scale.set(1, 1, boxScaleZ);
       boxPositionZ = THREE.MathUtils.lerp(boxPositionZ, boxTargetPositionZ, 0.1);
@@ -54,8 +54,8 @@ const Box = (props) => {
     }, 750);
     setTimeout(() => {
       handlePointerOut();
-    }, 1000);
-  }, [viewport.width, viewport.height]);
+    }, 900);
+  });
 
   return (
     <group>
