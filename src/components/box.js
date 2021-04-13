@@ -44,11 +44,11 @@ const Box = (props) => {
 
   useFrame(() => {
     if (box && boxScaleZ) {
-      boxScaleZ = THREE.MathUtils.lerp(boxScaleZ, boxTargetScaleZ, 0.1);
+      boxScaleZ = THREE.MathUtils.lerp(boxScaleZ, boxTargetScaleZ, !isFirstAnimationDone ? 0.0005 : 0.1);
       box.current.scale.set(1, 1, boxScaleZ);
-      boxPositionZ = THREE.MathUtils.lerp(boxPositionZ, boxTargetPositionZ, 0.1);
+      boxPositionZ = THREE.MathUtils.lerp(boxPositionZ, boxTargetPositionZ, !isFirstAnimationDone ? 0.0005 : 0.1);
       box.current.position.set(box.current.position.x, box.current.position.y, boxPositionZ);
-      boxRotationY = THREE.MathUtils.lerp(boxRotationY, boxTargetRotationY, 0.1);
+      boxRotationY = THREE.MathUtils.lerp(boxRotationY, boxTargetRotationY, !isFirstAnimationDone ? 0.0005 : 0.1);
       box.current.rotation.set(0, boxRotationY, 0);
     }
   });
@@ -67,7 +67,7 @@ const Box = (props) => {
     <group>
       <RoundedBox
         ref={box}
-        position={[props.boxPosition[0], props.boxPosition[1], Math.random() * -10]}
+        position={[props.boxPosition[0], props.boxPosition[1], Math.random() * 20]}
         args={[0.95, 0.95, 0.5]}
         radius={0.1}
         smoothness={10}
