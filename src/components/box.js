@@ -57,8 +57,6 @@ const Box = (props) => {
     }, 1000);
   }, [viewport.width, viewport.height]);
 
-  console.log("rendering box");
-
   return (
     <group>
       <RoundedBox
