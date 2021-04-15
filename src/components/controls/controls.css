@@ -1,0 +1,27 @@
+.buttonsContainer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+}
+
+.button {
+  width: 120px;
+  height: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid #2e86c1;
+  text-decoration: none;
+  font-size: 16px;
+  color: #2e86c1;
+  outline: none;
+}
+
+.button:hover {
+  border: 1px solid #88afc9;
+  color: #88afc9;
+}

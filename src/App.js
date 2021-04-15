@@ -2,9 +2,9 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { isMobile } from "react-device-detect";
 import Letters from "./containers/letters";
-import Lights from "./components/lights";
-import CameraController from "./components/cameraController";
-import Controls from "./components/controls";
+import Lights from "./components/lights/lights";
+import CameraController from "./components/cameraController/cameraController";
+import Controls from "./components/controls/controls";
 
 function App() {
   let cameraPosition = isMobile ? [-11, -8, 25] : [-5, -3.5, 19];

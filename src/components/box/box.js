@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { RoundedBox } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { isMobile } from "react-device-detect";
-import { useStore } from "../store/store";
+import { useStore } from "../../store/store";
 import * as THREE from "three";
 
 const Box = (props) => {

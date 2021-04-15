@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import Box from "../components/box";
+import Box from "../components/box/box";
 
 const Letters = (props) => {
   return useMemo(() => {
