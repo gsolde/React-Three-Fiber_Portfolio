@@ -8,17 +8,14 @@ const Controls = () => {
     <div
       style={{
         position: "fixed",
-        left: "30px",
+        left: "50%",
+        transform: "translateX(-50%)",
         bottom: "30px",
-        display: "flex",
-        justifyContent: "flex-start",
-        width: "15vw",
       }}
     >
       <button style={{ width: "120px", height: "60px" }} onClick={increaseResetBoxPositionCounter}>
         Sort
       </button>
-      <button style={{ width: "120px", height: "60px", marginLeft: "30px" }}>Shuffle</button>
     </div>
   );
 };

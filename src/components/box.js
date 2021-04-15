@@ -58,23 +58,19 @@ const Box = (props) => {
   });
 
   useEffect(() => {
-    if (!resetPositionCounter) {
-      setTimeout(() => {
+    setTimeout(
+      () => {
         initialPositioning(props.boxPosition[2], resetPositionCounter);
-      }, 750);
-      setTimeout(() => {
+      },
+      !resetPositionCounter ? 750 : 100
+    );
+    setTimeout(
+      () => {
         isFirstAnimationDone = true;
         handlePointerOut();
-      }, 900);
-    } else {
-      setTimeout(() => {
-        initialPositioning(props.boxPosition[2], resetPositionCounter);
-      }, 100);
-      setTimeout(() => {
-        isFirstAnimationDone = true;
-        handlePointerOut();
-      }, 350);
-    }
+      },
+      !resetPositionCounter ? 900 : 350
+    );
   });
 
   return (
