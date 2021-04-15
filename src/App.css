@@ -20,3 +20,12 @@
     opacity: 1;
   }
 }
+
+@media only screen and (max-width: 620px) {
+  .instructions {
+    font-size: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+  }
+}
