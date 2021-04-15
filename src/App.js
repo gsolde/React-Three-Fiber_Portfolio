@@ -5,6 +5,7 @@ import Letters from "./containers/letters";
 import Lights from "./components/lights/lights";
 import CameraController from "./components/cameraController/cameraController";
 import Controls from "./components/controls/controls";
+import "./App.css";
 
 function App() {
   let cameraPosition = isMobile ? [-11, -8, 25] : [-5, -3.5, 19];
@@ -18,6 +19,7 @@ function App() {
         <fog attach="fog" args={["white", 5, 50]} />
       </Canvas>
       <Controls />
+      <p className="instructions">Click and drag to make camera orbit & point to cubes to scatter them.</p>
     </>
   );
 }
