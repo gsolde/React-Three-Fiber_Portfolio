@@ -35,7 +35,7 @@ const Box = (props) => {
       boxScaleZ = box.current.scale.z;
       boxTargetScaleZ = 5;
       boxPositionZ = box.current.position.z;
-      boxTargetPositionZ = Math.random() > 0.5 ? boxPositionZ - 2 : boxPositionZ + 2;
+      boxTargetPositionZ = Math.random() > 0.5 ? boxPositionZ - 2.5 : boxPositionZ + 2.5;
     }
   }
 
