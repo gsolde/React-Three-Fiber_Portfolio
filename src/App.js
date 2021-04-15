@@ -8,7 +8,7 @@ import Controls from "./components/controls/controls";
 import "./App.css";
 
 function App() {
-  let cameraPosition = isMobile ? [-11, -8, 25] : [-5, -3.5, 19];
+  let cameraPosition = isMobile ? [-11, -8, 25] : [-8, -6.5, 19];
 
   return (
     <>
