@@ -1,9 +1,8 @@
 import React from "react";
 import { useStore } from "../store/store";
 
-const Controls = (props) => {
-  const resetPositionState = useStore((state) => state.resetPosition);
-  const updateResetPosition = useStore((state) => state.changeResetPosition);
+const Controls = () => {
+  const increaseResetBoxPositionCounter = useStore((state) => state.increaseBoxPositionResetCounter);
 
   return (
     <div
@@ -16,7 +15,7 @@ const Controls = (props) => {
         width: "15vw",
       }}
     >
-      <button style={{ width: "120px", height: "60px" }} onClick={updateResetPosition}>
+      <button style={{ width: "120px", height: "60px" }} onClick={increaseResetBoxPositionCounter}>
         Sort
       </button>
       <button style={{ width: "120px", height: "60px", marginLeft: "30px" }}>Shuffle</button>

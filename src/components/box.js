@@ -2,9 +2,12 @@ import React, { useEffect, useRef } from "react";
 import { RoundedBox } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { isMobile } from "react-device-detect";
+import { useStore } from "../store/store";
 import * as THREE from "three";
 
 const Box = (props) => {
+  const resetPositionCounter = useStore((state) => state.boxPositionResetCounter);
+
   let isFirstAnimationDone = false;
 
   let box = useRef();
@@ -16,9 +19,9 @@ const Box = (props) => {
   let boxPositionZ;
   let boxTargetPositionZ;
 
-  function initialPositioning(initialBoxPosition) {
+  function initialPositioning(initialBoxPosition, resetPositionCounter) {
     boxRotationY = box.current.rotation.y;
-    boxTargetRotationY = boxRotationY + Math.PI;
+    boxTargetRotationY = resetPositionCounter > 0 ? 0 : boxRotationY + Math.PI;
     boxScaleZ = box.current.scale.z;
     boxTargetScaleZ = 5;
     boxPositionZ = box.current.position.z;
@@ -55,13 +58,23 @@ const Box = (props) => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      initialPositioning(props.boxPosition[2]);
-    }, 750);
-    setTimeout(() => {
-      isFirstAnimationDone = true;
-      handlePointerOut();
-    }, 900);
+    if (!resetPositionCounter) {
+      setTimeout(() => {
+        initialPositioning(props.boxPosition[2], resetPositionCounter);
+      }, 750);
+      setTimeout(() => {
+        isFirstAnimationDone = true;
+        handlePointerOut();
+      }, 900);
+    } else {
+      setTimeout(() => {
+        initialPositioning(props.boxPosition[2], resetPositionCounter);
+      }, 100);
+      setTimeout(() => {
+        isFirstAnimationDone = true;
+        handlePointerOut();
+      }, 350);
+    }
   });
 
   return (
