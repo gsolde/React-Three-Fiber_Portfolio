@@ -19,7 +19,7 @@ function App() {
         <fog attach="fog" args={["white", 5, 50]} />
       </Canvas>
       <Controls />
-      <p className="instructions">Click and drag to make camera orbit & point to cubes to scatter them.</p>
+      <p className="instructions">Click and drag, zoom in and out & point to cubes.</p>
     </>
   );
 }
