@@ -19,7 +19,7 @@ function App() {
         <fog attach="fog" args={["white", 5, 50]} />
       </Canvas>
       <Controls />
-      <p className="instructions">Click and drag, zoom in and out & point to boxes.</p>
+      <p className="instructions">Click and drag, zoom in and out, point to boxes, reset.</p>
     </>
   );
 }
