@@ -2,9 +2,6 @@
 
 Early stage portfolio powered by R3F with lots of things yet to be improved. <br />
 
-Wanna move some cubes around? <br />
-Check the project out at: http://gerardsoldevila.com.
-
 🚀 New features coming soon! Stay tuned! 🚀
 
 ### To run the app
